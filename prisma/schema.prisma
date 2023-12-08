@@ -18,7 +18,6 @@ model Task {
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
   tags        Tag[]
-  tag         Tag?     @relation(fields: [tagId], references: [id])
 }
 
 model Tags {
@@ -27,5 +26,4 @@ model Tags {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   tasks     Task[]
-  task      Task?    @relation(fields: [taskId], references: [id])
 }
