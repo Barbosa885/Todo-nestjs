@@ -9,7 +9,7 @@ export class TaskService {
 
   async create(createTaskDto: CreateTaskDto)  {
     return await this.prisma.task.create({
-      data: createTaskDto,
+      data: createTaskDto
     })
   }
 
@@ -40,5 +40,9 @@ export class TaskService {
         id: id
       }
     })
+  }
+
+  async deleteAll() {
+    return await this.prisma.task.deleteMany()
   }
 }
