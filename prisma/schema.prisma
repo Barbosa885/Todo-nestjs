@@ -17,12 +17,13 @@ model Task {
   completed   Boolean  @default(false)
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
-  tags        Tag[]
+  tagId       Int?
+  tag         Tags?    @relation(fields: [tagId], references: [id])
 }
 
 model Tags {
   id        Int      @id @default(autoincrement())
-  category  String
+  name      String   @unique
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   tasks     Task[]
