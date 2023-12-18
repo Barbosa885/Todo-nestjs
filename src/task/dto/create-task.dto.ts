@@ -1,4 +1,4 @@
-import { IsString, IsNotEmpty, IsOptional, IsBoolean } from "class-validator";
+import { IsString, IsNotEmpty, IsOptional, IsBoolean, IsNumber } from "class-validator";
 
 export class CreateTaskDto {
   @IsNotEmpty()
@@ -13,6 +13,8 @@ export class CreateTaskDto {
   @IsBoolean()
   completed: boolean;
 
-  @IsString({ each: true })
-  tags: string[]
+  @IsNumber()
+  @IsOptional()
+  tagId: number;
 }
+
